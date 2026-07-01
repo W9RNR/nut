@@ -1699,3 +1699,4 @@
 
 "WTI"	"pdu"	"1"	"RPS-10"	"10 outlets"	"powerman-pdu (experimental)"
 "WTI"	"pdu"	"1"	"NPS"	"8 outlets"	"powerman-pdu (experimental)"
+"West Mountain Radio"   "ups"   "1" "Epic PwrGate"  ""  "pwrgate (experimental)"

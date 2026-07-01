@@ -1,3 +1,8 @@
+This is a fork to provide support/tracking for the West Mountain Radio Epic PWRGate
+https://www.westmountainradio.com/product_info.php?products_id=epic-pwrgate
+
+
+
 Network UPS Tools Overview
 ==========================
 // NOTE: No blank line here, document-header include processing should kick in!

@@ -152,8 +152,12 @@ SERIAL_DRIVERLIST = al175 apcmicrolink bcmxcp belkin belkinunv bestfcom	\
  gamatronic genericups isbmex liebert liebert-esp2 liebert-gxe masterguard metasys	\
  mge-utalk microdowell microsol-apc mge-shut nutdrv_hashx oneac optiups powercom powervar_cx_ser rhino	\
  safenet nutdrv_siemens-sitop solis tripplite tripplitesu upscode2 victronups powerpanel \
+<<<<<<< Updated upstream
  blazer_ser ivtscd apcsmart apcsmart-old riello_ser sms_ser bicker_ser ve-direct meanwell_ntu \
  ragtech
+=======
+ blazer_ser ivtscd apcsmart apcsmart-old riello_ser sms_ser bicker_ser ve-direct meanwell_ntu pwrgate
+>>>>>>> Stashed changes
 if HAVE_LINUX_SERIAL_H
 # Temporary, until ported to more OSes
 SERIAL_DRIVERLIST += nhs_ser
@@ -301,6 +305,12 @@ bicker_ser_LDADD = $(LDADD_DRIVERS_SERIAL) -lm
 ve_direct_SOURCES = ve-direct.c
 ve_direct_LDADD = $(LDADD_DRIVERS_SERIAL) -lm
 meanwell_ntu_SOURCES = meanwell_ntu.c
+pwrgate_SOURCES = pwrgate.c
+pwrgate_CFLASG = $(AM_CFLAGS)
+# Optional: explicit LDADD (default is $(LDADD_DRIVERS_SERIAL)); add only if needed
+pwrgate_LDADD  = $(LDADD_DRIVERS_SERIAL)
+
+
 
 # non-serial drivers: these use custom LDADD and/or CFLAGS
 
@@ -645,3 +655,4 @@ MAINTAINERCLEANFILES = Makefile.in .dirstamp
 
 # Helper for only the enabled libs to get built:
 all-libs-local: $(lib_LTLIBRARIES) $(noinst_LTLIBRARIES) $(EXTRA_LTLIBRARIES)
+
