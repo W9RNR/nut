@@ -1,7 +1,20 @@
 This is a fork to provide support/tracking for the West Mountain Radio Epic PWRGate
 https://www.westmountainradio.com/product_info.php?products_id=epic-pwrgate
 
+ups.conf
+[pwrgate]
 
+    driver = pwrgate
+    desc = "Epic PWRgate"
+    port = /dev/ttyPwrGate
+    vendor "West Mountain Radio"
+    pollinterval = 2
+    lowbatt = 12.0
+    maxretry = 3
+    retrydelay = 1
+
+/etc/udev/rules.d/99-nut-ups.rules add the following line 
+SUBSYSTEM=="tty", ATTRS{idVendor}=="2405", ATTRS{idProduct}=="0013", SYMLINK+="ttyPwrGate", GROUP="nut", MODE="0664", TAG+="systemd"
 
 Network UPS Tools Overview
 ==========================
