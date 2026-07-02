@@ -20,6 +20,46 @@ Create a /etc/udev/rules.d/99-nut-ups.rules file and add the following line
 
 SUBSYSTEM=="tty", ATTRS{idVendor}=="2405", ATTRS{idProduct}=="0013", SYMLINK+="ttyPwrGate", GROUP="nut", MODE="0664", TAG+="systemd"
 
+If you're a Home Assistant User, this is the card I'm using to monitor this via the NUT integration there
+
+cards:
+  - type: heading
+    heading: Epic PwrGate
+  - type: history-graph
+    entities:
+      - name: Status
+        entity: sensor.pwrgate_status
+    hours_to_show: 4
+  - type: gauge
+    entity: sensor.pwrgate_battery_voltage
+    name: Battery Charge
+    severity:
+      green: 12.8
+      yellow: 13.4
+      red: 0
+    max: 14
+    min: 10
+    unit: Volts
+  - type: history-graph
+    entities:
+      - name: Input Voltage
+        entity: sensor.pwrgate_input_voltage
+      - name: Battery Voltage
+        entity: sensor.pwrgate_battery_voltage
+    hours_to_show: 4
+  - type: gauge
+    entity: sensor.solar_input_voltage
+    name: Solar Charger
+    needle: true
+    min: 10
+    max: 16
+    display_precision: 2
+    severity:
+      red: 0
+      green: 12.8
+      yellow: 13.3
+
+
 Network UPS Tools Overview
 ==========================
 // NOTE: No blank line here, document-header include processing should kick in!
